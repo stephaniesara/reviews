@@ -4,8 +4,8 @@
 
 ## Related Projects
 
-  - https://github.com/CodeRoundTheCampfire/menus
-  - https://github.com/CodeRoundTheCampfire/about-map
+  - https://github.com/CodeRoundTheCampfire/reservations
+  - https://github.com/CodeRoundTheCampfire/About-Map
   - https://github.com/CodeRoundTheCampfire/searchbar
   - https://github.com/CodeRoundTheCampfire/photo-stream
 

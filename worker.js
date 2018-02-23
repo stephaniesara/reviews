@@ -1,35 +1,47 @@
-var mysql = require('mysql');
+// DO NOT NEED WORKER.JS CURRENTLY
 
-var con = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: ''
-});
+// var mysql = require('mysql');
 
-con.connect(function(err) {
-	if (err) throw err;
-	console.log('connected!');
-})
+// var con = mysql.createConnection({
+// 	host: 'localhost',
+// 	user: 'root',
+// 	password: ''
+// });
 
-con.query('use yelp_db');
-// con.query('create database yelp_reviews');
+// con.connect(function(err) {
+// 	if (err) throw err;
+// 	console.log('connected!');
+// })
+
+// con.query('use yelp_db');
+// // con.query('create database yelp_reviews');
 
 
-var business_id = '--DaPTJW3-tB1vP-PfdTEg';
+// var business_id = '--DaPTJW3-tB1vP-PfdTEg';
 
 
-var getAll = (business_id, callback) => {
-	var result = {};
-	var queryString = 'select * from business inner join review on review.business_id = business.id inner join user on user.id = review.user_id where business.id = \'' + business_id + '\'';
-	con.query(queryString, callback);
-}
+// var getAll = (business_id, callback) => {
+// 	var result = {};
+// 	var queryString = 'select * from business inner join review on review.business_id = business.id inner join user on user.id = review.user_id where business.id = \'' + business_id + '\'';
+// 	con.query(queryString, callback);
+// }
 
-getAll(business_id, (err, result) => {
-	if (err) throw err;
-	console.log(result.length);
-	console.log(Array.isArray(result));
-	console.log(result[0].business_id);
-});
+// getAll(business_id, (err, result) => {
+// 	if (err) throw err;
+// 	console.log(result.length);
+// 	console.log(Array.isArray(result));
+// 	console.log(result[0].business_id);
+// });
+
+// var getFirst200 = (callback) => {
+// 	var queryString = 'select * from business limit 200';
+// 	con.query(queryString, callback);
+// }
+
+// getFirst200((err, result) => {
+// 	if (err) throw err;
+// 	console.log(result);
+// })
 
 // var getBusinessDetails = (business_id, callback) => {
 // 	var queryString = 'select * from business where id = \'' + business_id + '\'';
