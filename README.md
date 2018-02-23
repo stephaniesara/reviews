@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/CodeRoundTheCampfire/menus
+  - https://github.com/CodeRoundTheCampfire/about-map
+  - https://github.com/CodeRoundTheCampfire/searchbar
+  - https://github.com/CodeRoundTheCampfire/photo-stream
 
 ## Table of Contents
 
