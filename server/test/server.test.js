@@ -23,7 +23,7 @@ describe('app server', () => {
 		db.end();
 	})
 
-	test('basic 2+2 test works', () => {
+	test('basic 2 === 2 test works', () => {
 		expect(2).toEqual(2);
 	});
 
@@ -31,7 +31,7 @@ describe('app server', () => {
 	test('works with async get', () => {
 		var id = '--DaPTJW3-tB1vP-PfdTEg';
 		var url = 'http://localhost:3002/reviews/' + id;
-		request({url: url}, (err, response, body) => {
+		request(url, (err, response, body) => {
 			var result = JSON.parse(body);
 			expect(result.length).toEqual(39);
 			expect(result[0].business_id).toEqual('--DaPTJW3-tB1vP-PfdTEg')
