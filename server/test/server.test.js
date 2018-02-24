@@ -29,7 +29,7 @@ describe('app server', () => {
 
 
 	test('works with async get', () => {
-		var id = '--DaPTJW3-tB1vP-PfdTEg';
+		var id = '--DaPTJW3-tB1vP-PfdTEg'; // correct id
 		var url = 'http://localhost:3002/reviews/' + id;
 		request(url, (err, response, body) => {
 			var result = JSON.parse(body);
@@ -39,8 +39,8 @@ describe('app server', () => {
 		});
 	})
 
-		test('works with async get', () => {
-		var id = 'w098423089432';
+	test('works with async get', () => {
+		var id = 'w098423089432'; // incorrect id
 		var url = 'http://localhost:3002/reviews/' + id;
 		request(url, (err, response, body) => {
 			var result = JSON.parse(body);
