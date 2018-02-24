@@ -39,4 +39,13 @@ describe('app server', () => {
 		});
 	})
 
+		test('works with async get', () => {
+		var id = 'w098423089432';
+		var url = 'http://localhost:3002/reviews/' + id;
+		request(url, (err, response, body) => {
+			var result = JSON.parse(body);
+			expect(result).toEqual([]);
+		});
+	})
+
 })
