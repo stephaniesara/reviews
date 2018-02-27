@@ -5,6 +5,7 @@ import $ from '../../../node_modules/jquery';
 import ReactStars from 'react-stars';
 
 //https://github.com/One-com/react-truncate
+import Truncate from 'react-truncate';
 
 class Review extends React.Component {
 	constructor(props) {
@@ -23,12 +24,10 @@ class Review extends React.Component {
 	}
 
 	render() {
-		// var {expanded} = this.state;
 		var toggledClass = this.state.expanded ? 'expanded' : 'collapsed';
 		return (
 			<div className="review">
 
-			
 			<div className="header">
 			{this.props.review.u_name}
 			</div>
@@ -52,7 +51,7 @@ class Review extends React.Component {
 			</div>
 			<div className="read-more"
 						onClick={this.toggleTextClass}>
-						{this.state.expanded ? 'Read less' : 'Read more'}
+						{this.state.expanded ? '- Read less' : '+ Read more'}
 			</div>
 
 			<div className="report-helpful">Report || Helpful</div>

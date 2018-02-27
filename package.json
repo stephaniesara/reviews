@@ -24,6 +24,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-stars": "^2.2.5",
+    "react-truncate": "^2.3.0",
     "request": "^2.83.0",
     "yelp-fusion": "^2.0.3"
   },
