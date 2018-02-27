@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const Promise = require('bluebird');
 const db = require('./db')
+const fs = require('fs');
 
 app.use(express.static('client/dist'));
 // app.use(bodyParser.json());
@@ -18,7 +19,16 @@ app.get('/reviews/:id', (req, res) => {
 		if (err) {
 			sendError(res, err);
 		} else {
-			res.json(result);
+			// console.log(result);
+			res.status(200).json(result);
+			// fs.writeFile('data.json', JSON.stringify(result), err => {
+			// 	if (err) {
+			// 		sendError(res, err);
+			// 	} else {
+			// 		console.log('the file has been saved!');
+			// 		res.status(200).json(result);
+			// 	}
+			// });
 		}
 	})
 })
