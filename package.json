@@ -11,12 +11,12 @@
     "test": "jest",
     "start": "nodemon server/index.js",
     "dev-react": "webpack -d --watch",
-    "seed-db": "node seed.js",
     "worker": "node worker.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "boostrap": "^2.0.0",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.0.6",

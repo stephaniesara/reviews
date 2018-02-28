@@ -7,10 +7,11 @@ class Ratings extends React.Component {
 	}
 
 	render() {
+		const { ratings } = this.props;
+		
 		return (
 			<div>
-			<h2>What {this.props.ratings.review_count} People Are Saying</h2>
-			<div>{this.props.ratings.overall}</div>
+			<h2>What { ratings.review_count } People Are Saying</h2>
 			</div>
 		)
 	}

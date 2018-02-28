@@ -8,11 +8,15 @@ class Reviews extends React.Component {
 	}
 
 	render() {
+		const {reviews} = this.props;
+
 		return (
 			<div className="reviews">
-			{this.props.reviews.map((review, index) => 
-				<Review review={review} key={index} />
-				)}
+			{ reviews.map((review, index) => 
+				<Review 
+					review={ review } 
+					key={ index } />
+			) }
 			</div>
 		)
 	}

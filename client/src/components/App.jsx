@@ -6,25 +6,25 @@ import Reviews from './Reviews.jsx';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
+		const { restaurant } = this.props;
 		this.state = {
-			ratings: {},
+			ratings: {
+				review_count: restaurant.review_count,
+				stars: restaurant.stars
+			},
 			reviews: []
 		}
 	}
 
 	componentDidMount() {
+		const id = this.props.restaurant.id;
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3002/reviews/' + this.props.id,
+			url: 'http://localhost:3002/reviews/' + id,
 			success: (result) => {
 				console.log('get success!')
 				console.log(result);
-				var ratings = {
-					review_count: result[0].b_review_count,
-					overall: result[0].b_stars,
-				};
 				this.setState({
-					ratings: ratings,
 					reviews: result
 				});
 			},
@@ -36,10 +36,12 @@ class App extends React.Component {
 	}
 
 	render() {
+		const {ratings, reviews} = this.state;
+
 		return (
 			<div>
-			<Ratings ratings={this.state.ratings}/>
-			<Reviews reviews={this.state.reviews}/>
+			<Ratings ratings={ ratings }/>
+			<Reviews reviews={ reviews }/>
 			</div>
 		)
 	}

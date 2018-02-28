@@ -4,57 +4,72 @@ import $ from '../../../node_modules/jquery';
 // https://github.com/n49/react-stars
 import ReactStars from 'react-stars';
 
-//https://github.com/One-com/react-truncate
-import Truncate from 'react-truncate';
+// https://github.com/One-com/react-truncate
+// import Truncate from 'react-truncate';
 
 class Review extends React.Component {
 	constructor(props) {
 		super(props);
+		this.maxChars = 250;
 		this.state = {
-			expanded: false
+			isExpanded: false
 		}
 		this.toggleTextClass = this.toggleTextClass.bind(this);
 	}
 
+	renderReadMoreButton() {
+    return (
+    	<div 
+    		className="read-more"
+    		onClick={this.toggleTextClass}>
+    		{ this.state.isExpanded ? '- Read less' : '+ Read more' }
+    	</div>
+   );
+	}
+
 	toggleTextClass() {
-		console.log('toggle!');
 		this.setState({
-				expanded: !this.state.expanded
+			isExpanded: !this.state.isExpanded
 		});
 	}
 
 	render() {
-		var toggledClass = this.state.expanded ? 'expanded' : 'collapsed';
+		const { stars, date, text, name } = this.props.review;
+		const { isExpanded } = this.state;
+
+		var toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
+
 		return (
 			<div className="review">
 
 			<div className="header">
-			{this.props.review.u_name}
+			  { name }
 			</div>
 
 			<div className="sub-header">
-				<div>
-					<ReactStars 
-					count={5} 
-					value={this.props.review.r_stars}
-					color1="gray"
-					color2="red"
-					edit={false}
-					/>
-				</div>
-				<div>{(this.props.review.r_stars).toFixed(2)}</div>
-				<div>{this.props.review.r_date}</div>
-			</div>
-			
-			<div className={toggledClass}>
-			{this.props.review.r_text}
-			</div>
-			<div className="read-more"
-						onClick={this.toggleTextClass}>
-						{this.state.expanded ? '- Read less' : '+ Read more'}
+				<div><ReactStars 
+						count={ 5 } 
+						value={ stars}
+						color1={ "gray" }
+						color2={ "#EF002F" }
+						edit={ false }
+				/></div>
+				<div>{ (stars).toFixed(2) }</div>
+				<div>{ date }</div>
 			</div>
 
-			<div className="report-helpful">Report || Helpful</div>
+			<div className={ toggledClass }>
+			  { text }
+			</div>
+
+      { text.length > this.maxChars &&
+      	this.renderReadMoreButton()
+      }
+
+			<div className="report-helpful">
+			  Report || Helpful
+			</div>
+
 			</div>
 		)
 	}
