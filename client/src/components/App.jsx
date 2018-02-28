@@ -7,12 +7,8 @@ import Sort from './Sort.jsx';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		const { restaurant } = this.props;
 		this.state = {
-			ratings: {
-				review_count: restaurant.review_count,
-				stars: restaurant.stars
-			},
+			ratings: {},
 			reviews: [],
 			sort: 'Newest'
 		}
@@ -20,19 +16,19 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		const id = this.props.restaurant.id;
+		const { iterator } = this.props;
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3002/reviews/' + id,
+			url: 'http://localhost:3002/reviews/' + iterator,
 			success: (result) => {
-				console.log('get success!')
-				console.log(result);
+				console.log(result.ratings);
+				console.log(result.reviews);
 				this.setState({
-					reviews: result
+					ratings: result.ratings, // restaurant data for given iterator
+					reviews: result.reviews // reviews data for given iterator
 				});
 			},
 			error: (err) => {
-				console.log('get error!')
 				console.log(err);
 			}
 		})
@@ -46,18 +42,18 @@ class App extends React.Component {
 	}
 
 	render() {
-		const {ratings, reviews} = this.state;
+		const { ratings, reviews } = this.state;
 
 		return (
 			<div>
 			<Ratings ratings={ ratings }/>
-			<Sort handleSelectSort={this.handleSelectSort}/>
+			<Sort handleSelectSort={ this.handleSelectSort }/>
 			<Reviews
 				reviews={ reviews }
-				sort={this.state.sort}/>
+				sort={ this.state.sort }/>
 			</div>
 		)
 	}
 }
 
-module.exports = App;
+export default App;

@@ -17,4 +17,4 @@ class Ratings extends React.Component {
 	}
 }
 
-module.exports = Ratings;
+export default Ratings;

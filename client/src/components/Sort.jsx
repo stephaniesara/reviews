@@ -25,7 +25,7 @@ class Sort extends React.Component {
 	}
 
 	handleChange(selected) {
-		const {value} = selected; 
+		const { value } = selected; 
 		this.setState({
 			selected: value
 		})
@@ -38,8 +38,8 @@ class Sort extends React.Component {
 		return (
 			<div>
 			<Dropdown
-				className="dropdown"
-				options={options}
+				className="sort"
+				options={ options }
 				onChange={ this.handleChange }
 				value={ this.state.selected }
 				/>
@@ -48,4 +48,4 @@ class Sort extends React.Component {
 	}
 }
 
-module.exports = Sort;
+export default Sort;

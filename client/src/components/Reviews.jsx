@@ -29,11 +29,10 @@ class Reviews extends React.Component {
 				<Review 
 					review={ review } 
 					key={ index }
-				/>
-			) }
+				/>) }
 			</div>
 		)
 	}
 }
 
-module.exports = Reviews;
+export default Reviews;
