@@ -2,6 +2,7 @@ import React from 'react';
 import $ from '../../../node_modules/jquery';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import Sort from './Sort.jsx';
 
 class App extends React.Component {
 	constructor(props) {
@@ -12,8 +13,10 @@ class App extends React.Component {
 				review_count: restaurant.review_count,
 				stars: restaurant.stars
 			},
-			reviews: []
+			reviews: [],
+			sort: 'Newest'
 		}
+		this.handleSelectSort = this.handleSelectSort.bind(this);
 	}
 
 	componentDidMount() {
@@ -35,13 +38,23 @@ class App extends React.Component {
 		})
 	}
 
+	handleSelectSort(value) {
+		console.log('selected!', value);
+		this.setState({
+			sort: value
+		})
+	}
+
 	render() {
 		const {ratings, reviews} = this.state;
 
 		return (
 			<div>
 			<Ratings ratings={ ratings }/>
-			<Reviews reviews={ reviews }/>
+			<Sort handleSelectSort={this.handleSelectSort}/>
+			<Reviews
+				reviews={ reviews }
+				sort={this.state.sort}/>
 			</div>
 		)
 	}

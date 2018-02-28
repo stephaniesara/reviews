@@ -10,7 +10,7 @@ import ReactStars from 'react-stars';
 class Review extends React.Component {
 	constructor(props) {
 		super(props);
-		this.maxChars = 250;
+		this.maxChars = 275;
 		this.state = {
 			isExpanded: false
 		}
