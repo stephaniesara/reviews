@@ -15,7 +15,7 @@ class Reviews extends React.Component {
 			? (a, b) => { return b.stars - a.stars; }
 			: (a, b) => { return a.stars - b.stars; };
 
-		return reviews.slice(0).sort(comparator);
+		return reviews.slice().sort(comparator);
 	}
 
 	render() {
