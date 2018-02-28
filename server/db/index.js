@@ -8,9 +8,7 @@ var db = mysql.createConnection({
 
 db.connect(err => {
 	if (err) throw err;
-	console.log('connected to mysql db!');
+	console.log('connected to mysql db');
 });
-
-db.query('use yelp_db');
 
 module.exports = db;

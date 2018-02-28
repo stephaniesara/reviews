@@ -10,7 +10,7 @@ import ReactStars from 'react-stars';
 class Review extends React.Component {
 	constructor(props) {
 		super(props);
-		this.maxChars = 250;
+		this.maxChars = 270;
 		this.state = {
 			isExpanded: false
 		}
@@ -21,7 +21,7 @@ class Review extends React.Component {
     return (
     	<div 
     		className="read-more"
-    		onClick={this.toggleTextClass}>
+    		onClick={ this.toggleTextClass }>
     		{ this.state.isExpanded ? '- Read less' : '+ Read more' }
     	</div>
    );
@@ -52,27 +52,25 @@ class Review extends React.Component {
 						value={ stars}
 						color1={ "gray" }
 						color2={ "#EF002F" }
-						edit={ false }
-				/></div>
+						edit={ false } />
+						</div>
 				<div>{ (stars).toFixed(2) }</div>
 				<div>{ date }</div>
 			</div>
 
 			<div className={ toggledClass }>
-			  { text }
-			</div>
+			  { text } </div>
 
       { text.length > this.maxChars &&
       	this.renderReadMoreButton()
       }
 
 			<div className="report-helpful">
-			  Report || Helpful
-			</div>
+			  Report || Helpful </div>
 
 			</div>
 		)
 	}
 }
 
-module.exports = Review;
+export default Review;

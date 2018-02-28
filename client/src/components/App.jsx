@@ -2,49 +2,58 @@ import React from 'react';
 import $ from '../../../node_modules/jquery';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import Sort from './Sort.jsx';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		const { restaurant } = this.props;
 		this.state = {
-			ratings: {
-				review_count: restaurant.review_count,
-				stars: restaurant.stars
-			},
-			reviews: []
+			ratings: {},
+			reviews: [],
+			sort: 'Newest'
 		}
+		this.handleSelectSort = this.handleSelectSort.bind(this);
 	}
 
 	componentDidMount() {
-		const id = this.props.restaurant.id;
+		const { iterator } = this.props;
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3002/reviews/' + id,
+			url: 'http://localhost:3002/reviews/' + iterator,
 			success: (result) => {
-				console.log('get success!')
-				console.log(result);
+				console.log(result.ratings);
+				console.log(result.reviews);
 				this.setState({
-					reviews: result
+					ratings: result.ratings, // restaurant data for given iterator
+					reviews: result.reviews // reviews data for given iterator
 				});
 			},
 			error: (err) => {
-				console.log('get error!')
 				console.log(err);
 			}
 		})
 	}
 
+	handleSelectSort(value) {
+		console.log('selected!', value);
+		this.setState({
+			sort: value
+		})
+	}
+
 	render() {
-		const {ratings, reviews} = this.state;
+		const { ratings, reviews } = this.state;
 
 		return (
 			<div>
 			<Ratings ratings={ ratings }/>
-			<Reviews reviews={ reviews }/>
+			<Sort handleSelectSort={ this.handleSelectSort }/>
+			<Reviews
+				reviews={ reviews }
+				sort={ this.state.sort }/>
 			</div>
 		)
 	}
 }
 
-module.exports = App;
+export default App;
