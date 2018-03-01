@@ -7,6 +7,8 @@ import ReactStars from 'react-stars';
 // https://github.com/One-com/react-truncate
 // import Truncate from 'react-truncate';
 
+import classNames from 'classnames';
+
 class Review extends React.Component {
 	constructor(props) {
 		super(props);
@@ -36,40 +38,45 @@ class Review extends React.Component {
 	render() {
 		const { stars, date, text, name } = this.props.review;
 		const { isExpanded } = this.state;
+		const { filters } = this.props;
 
 		var toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
 
-		return (
-			<div className="review">
+		if (Object.keys(filters).length === 0 || filters.stars === stars) {
+			return (
+				<div className="review">
 
-			<div className="header">
-			  { name }
-			</div>
+				<div className="header-text">
+				  { name }
+				</div>
 
-			<div className="sub-header">
-				<div><ReactStars 
-						count={ 5 } 
-						value={ stars}
-						color1={ "gray" }
-						color2={ "#EF002F" }
-						edit={ false } />
-						</div>
-				<div>{ (stars).toFixed(2) }</div>
-				<div>{ date }</div>
-			</div>
+				<div className="stars-section">
+					<div><ReactStars 
+							count={ 5 } 
+							value={ stars}
+							color1={ "gray" }
+							color2={ "#EF002F" }
+							edit={ false } />
+							</div>
+					<div className="text-small">{ (stars).toFixed(2) }</div>
+					<div className="text-small">{ date }</div>
+				</div>
 
-			<div className={ toggledClass }>
-			  { text } </div>
+				<div className={classNames({text: true, [toggledClass]: true})}>
+				  { text } </div>
 
-      { text.length > this.maxChars &&
-      	this.renderReadMoreButton()
-      }
+	      { text.length > this.maxChars &&
+	      	this.renderReadMoreButton()
+	      }
 
-			<div className="report-helpful">
-			  Report || Helpful </div>
+				<div className="report-helpful">
+				  Report || Helpful </div>
 
-			</div>
-		)
+				</div>
+			)
+		} else {
+			return null;
+		}
 	}
 }
 
