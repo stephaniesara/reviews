@@ -19,16 +19,17 @@ class Reviews extends React.Component {
 	}
 
 	render() {
-		const { sort } = this.props;
+		const { sort, filters } = this.props;
 
 		const reviews = sort === 'Newest' ? this.props.reviews : this.getSorted();
 
 		return (
-			<div className="reviews">
+			<div id="reviews">
 			{ reviews.map((review, index) => 
 				<Review 
 					review={ review } 
 					key={ index }
+					filters={ filters }
 				/>) }
 			</div>
 		)

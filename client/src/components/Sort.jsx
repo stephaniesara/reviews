@@ -36,9 +36,10 @@ class Sort extends React.Component {
 		// const { handleSelectSort } = this.props;
 		
 		return (
-			<div>
+			<div id="sort">
+			<div className="header-text">Sort by</div>
 			<Dropdown
-				className="sort"
+				className="dropdown"
 				options={ options }
 				onChange={ this.handleChange }
 				value={ this.state.selected }

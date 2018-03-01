@@ -3,6 +3,7 @@ import $ from '../../../node_modules/jquery';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
 import Sort from './Sort.jsx';
+import Filters from './Filters.jsx';
 
 class App extends React.Component {
 	constructor(props) {
@@ -10,9 +11,12 @@ class App extends React.Component {
 		this.state = {
 			ratings: {},
 			reviews: [],
-			sort: 'Newest'
+			sort: 'Newest',
+			filters: {}
 		}
 		this.handleSelectSort = this.handleSelectSort.bind(this);
+		this.handleRatingSelect = this.handleRatingSelect.bind(this);
+		this.clearFilter = this.clearFilter.bind(this);
 	}
 
 	componentDidMount() {
@@ -35,22 +39,44 @@ class App extends React.Component {
 	}
 
 	handleSelectSort(value) {
-		console.log('selected!', value);
+		console.log('handleSelectSort', value);
 		this.setState({
 			sort: value
 		})
 	}
 
+	handleRatingSelect(label) {
+		console.log('handleRatingSelect', label);
+		const newFilters = this.state.filters;
+		newFilters.stars = label;
+		this.setState({
+			filters: newFilters
+		})
+	}
+
+	clearFilter() {
+		console.log('clearFilter');
+		this.setState({
+			filters: {}
+		})
+	}
+
 	render() {
-		const { ratings, reviews } = this.state;
+		const { ratings, reviews, sort, filters } = this.state;
 
 		return (
 			<div>
-			<Ratings ratings={ ratings }/>
+			<Ratings 
+				ratings={ ratings }
+				handleRatingSelect={ this.handleRatingSelect }/>
 			<Sort handleSelectSort={ this.handleSelectSort }/>
+			<Filters 
+				filters={ filters }
+				clearFilter={ this.clearFilter }/>
 			<Reviews
 				reviews={ reviews }
-				sort={ this.state.sort }/>
+				sort={ sort }
+				filters={ filters }/>
 			</div>
 		)
 	}
