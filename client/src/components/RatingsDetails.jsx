@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 // https://github.com/n49/react-stars
 import ReactStars from 'react-stars';
 

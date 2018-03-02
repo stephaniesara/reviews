@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 import RatingsBar from './RatingsBar.jsx';
 
 class RatingsBarList extends React.Component {

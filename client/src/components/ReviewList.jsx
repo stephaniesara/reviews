@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 import Review from './Review.jsx';
 
 class ReviewList extends React.Component {
