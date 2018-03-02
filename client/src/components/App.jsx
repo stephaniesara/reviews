@@ -9,7 +9,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			ratings: {},
+			details: {},
 			reviews: [],
 			sort: 'Newest',
 			filters: {}
@@ -25,10 +25,10 @@ class App extends React.Component {
 			method: 'GET',
 			url: 'http://localhost:3002/reviews/' + iterator,
 			success: (result) => {
-				console.log(result.ratings);
+				console.log(result.details);
 				console.log(result.reviews);
 				this.setState({
-					ratings: result.ratings, // restaurant data for given iterator
+					details: result.details, // restaurant data for given iterator
 					reviews: result.reviews // reviews data for given iterator
 				});
 			},
@@ -62,12 +62,12 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { ratings, reviews, sort, filters } = this.state;
+		const { details, reviews, sort, filters } = this.state;
 
 		return (
 			<div>
 				<Ratings 
-					ratings={ ratings }
+					details={ details }
 					handleRatingSelect={ this.handleRatingSelect }/>
 				<Sort 
 					handleSelectSort={ this.handleSelectSort }/>

@@ -8,15 +8,14 @@ class RatingsBarList extends React.Component {
 	}
 
 	render() {
-		const bars = [[5, 50], [4, 30], [3, 20], [2, 7], [1, 3]];
-	
+		const { review_count } = this.props;
 		return (
 			<div className="bars text">
-				{bars.map((elem, index) =>
+				{[5, 4, 3, 2, 1].map((label, index) =>
 					<RatingsBar
 						key={index}
-						label={elem[0]}
-						percent={elem[1]}
+						label={label}
+						percent={review_count[label]}
 						handleRatingSelect={ this.props.handleRatingSelect }
 					/>
 				)}
