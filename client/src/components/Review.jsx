@@ -42,41 +42,32 @@ class Review extends React.Component {
 
 		var toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
 
-		if (Object.keys(filters).length === 0 || filters.stars === stars) {
-			return (
-				<div className="review">
+		if (Object.keys(filters).length !== 0 && filters.stars !== stars) {
+			return null;
+		}
 
-				<div className="header-text">
-				  { name }
-				</div>
-
+		return (
+			<div className="review">
+				<div className="header-text">{ name }</div>
 				<div className="stars-section">
-					<div><ReactStars 
+					<ReactStars 
 							count={ 5 } 
 							value={ stars}
 							color1={ "gray" }
 							color2={ "#EF002F" }
 							edit={ false } />
-							</div>
-					<div className="text-small">{ (stars).toFixed(2) }</div>
+					<div className="text-small">{ (stars).toFixed(1) }</div>
 					<div className="text-small">{ date }</div>
 				</div>
-
-				<div className={classNames({text: true, [toggledClass]: true})}>
-				  { text } </div>
+				<div className={classNames({text: true, [toggledClass]: true})}>{ text }</div>
 
 	      { text.length > this.maxChars &&
-	      	this.renderReadMoreButton()
-	      }
+	      	this.renderReadMoreButton() }
 
 				<div className="report-helpful">
 				  Report || Helpful </div>
-
-				</div>
-			)
-		} else {
-			return null;
-		}
+			</div>
+		)
 	}
 }
 

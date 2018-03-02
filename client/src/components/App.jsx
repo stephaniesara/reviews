@@ -66,17 +66,18 @@ class App extends React.Component {
 
 		return (
 			<div>
-			<Ratings 
-				ratings={ ratings }
-				handleRatingSelect={ this.handleRatingSelect }/>
-			<Sort handleSelectSort={ this.handleSelectSort }/>
-			<Filters 
-				filters={ filters }
-				clearFilter={ this.clearFilter }/>
-			<Reviews
-				reviews={ reviews }
-				sort={ sort }
-				filters={ filters }/>
+				<Ratings 
+					ratings={ ratings }
+					handleRatingSelect={ this.handleRatingSelect }/>
+				<Sort 
+					handleSelectSort={ this.handleSelectSort }/>
+				<Filters 
+					filters={ filters }
+					clearFilter={ this.clearFilter }/>
+				<Reviews
+					reviews={ reviews }
+					sort={ sort }
+					filters={ filters }/>
 			</div>
 		)
 	}

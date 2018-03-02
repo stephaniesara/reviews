@@ -45,10 +45,9 @@ class Filters extends React.Component {
 		
 		return (
 			<div id="filters">
-			<div className="header-text">Filters
-			{ Object.keys(filters).length > 0 &&
-				this.renderCheckbox() }
-			</div>
+				<div className="header-text">Filters
+					{ Object.keys(filters).length > 0 && this.renderCheckbox() }
+				</div>
 			</div>
 		)
 	}
