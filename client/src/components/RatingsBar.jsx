@@ -1,8 +1,6 @@
 import React from 'react';
 import $ from '../../../node_modules/jquery';
-
 import { ProgressBar } from 'react-bootstrap';
-
 
 class RatingsBar extends React.Component {
 	constructor(props) {
@@ -11,7 +9,7 @@ class RatingsBar extends React.Component {
 	}
 
 	handleClick() {
-		console.log('clicked');
+		console.log('handleClick');
 		document.getElementById('sort').scrollIntoView();
 		this.props.handleRatingSelect(this.props.label);
 	}
@@ -24,8 +22,9 @@ class RatingsBar extends React.Component {
 				<ProgressBar 
 					className="bar" 
 					now={ percent } 
-					onClick={ this.handleClick }/></div>
-
+					onClick={ this.handleClick }
+				/>
+			</div>
 		)
 	}
 }

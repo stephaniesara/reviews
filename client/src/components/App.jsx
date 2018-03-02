@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from '../../../node_modules/jquery';
 import Ratings from './Ratings.jsx';
-import Reviews from './Reviews.jsx';
+import ReviewList from './ReviewList.jsx';
 import Sort from './Sort.jsx';
 import Filters from './Filters.jsx';
 
@@ -9,7 +9,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			ratings: {},
+			review_count: {},
+			details: {},
 			reviews: [],
 			sort: 'Newest',
 			filters: {}
@@ -25,10 +26,10 @@ class App extends React.Component {
 			method: 'GET',
 			url: 'http://localhost:3002/reviews/' + iterator,
 			success: (result) => {
-				console.log(result.ratings);
-				console.log(result.reviews);
+				console.log(result);
 				this.setState({
-					ratings: result.ratings, // restaurant data for given iterator
+					review_count: result.review_count,
+					details: result.details, // restaurant data for given iterator
 					reviews: result.reviews // reviews data for given iterator
 				});
 			},
@@ -62,21 +63,23 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { ratings, reviews, sort, filters } = this.state;
+		const { details, reviews, sort, filters, review_count } = this.state;
 
 		return (
 			<div>
-			<Ratings 
-				ratings={ ratings }
-				handleRatingSelect={ this.handleRatingSelect }/>
-			<Sort handleSelectSort={ this.handleSelectSort }/>
-			<Filters 
-				filters={ filters }
-				clearFilter={ this.clearFilter }/>
-			<Reviews
-				reviews={ reviews }
-				sort={ sort }
-				filters={ filters }/>
+				<Ratings 
+					details={ details }
+					review_count={ review_count }
+					handleRatingSelect={ this.handleRatingSelect }/>
+				<Sort 
+					handleSelectSort={ this.handleSelectSort }/>
+				<Filters 
+					filters={ filters }
+					clearFilter={ this.clearFilter }/>
+				<ReviewList
+					reviews={ reviews }
+					sort={ sort }
+					filters={ filters }/>
 			</div>
 		)
 	}
