@@ -15,7 +15,7 @@ class RatingsBarList extends React.Component {
 					<RatingsBar
 						key={index}
 						label={label}
-						percent={review_count[label]}
+						percent={ Math.floor(review_count[label] / review_count.overall * 100) }
 						handleRatingSelect={ this.props.handleRatingSelect }
 					/>
 				)}

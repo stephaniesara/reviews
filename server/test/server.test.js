@@ -4,28 +4,28 @@
 //   expect(sum(1, 2)).toBe(3);
 // });
 
-const mysql = require('mysql');
+// const mysql = require('mysql');
 const request = require('request');
 
 describe('app server', () => {
-	var db;
+	// var db;
 
-	beforeEach(() => {
-		db = mysql.createConnection({
-			host: 'localhost',
-			user: 'root',
-			password: ''
-		});
-		db.connect();
-	});
+	// beforeEach(() => {
+	// 	db = mysql.createConnection({
+	// 		host: 'localhost',
+	// 		user: 'root',
+	// 		password: ''
+	// 	});
+	// 	db.connect();
+	// });
 
-	afterEach(() => {
-		db.end();
-	})
+	// afterEach(() => {
+	// 	db.end();
+	// })
 
-	test('basic 2 === 2 test works', () => {
-		expect(2).toEqual(2);
-	});
+	// test('basic 2 === 2 test works', () => {
+	// 	expect(2).toEqual(2);
+	// });
 
 
 	test('works with async get valid input', () => {

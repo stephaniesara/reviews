@@ -1,22 +1,40 @@
 import React from 'react';
 import $ from '../../../node_modules/jquery';
-
-// https://github.com/n49/react-stars
 import ReactStars from 'react-stars';
-
-// https://github.com/One-com/react-truncate
-// import Truncate from 'react-truncate';
-
 import classNames from 'classnames';
+import moment from 'moment';
 
 class Review extends React.Component {
 	constructor(props) {
 		super(props);
-		this.maxChars = 270;
+		this.maxChars = 280;
+		this.today = new Date();
 		this.state = {
 			isExpanded: false
 		}
 		this.toggleTextClass = this.toggleTextClass.bind(this);
+		this.renderStarsSection = this.renderStarsSection.bind(this);
+	}
+
+	renderStarsSection() {
+		const { stars, date } = this.props.review;
+
+		const dateDisplay = moment(date).add(7, 'd') > this.today 
+			? moment(date, 'YYYYMMDD').fromNow() 
+			: 'on ' + moment(date, 'YYYYMMDD').format('LL');
+
+		return (
+			<div className="stars-section">
+				<ReactStars 
+					count={ 5 } 
+					value={ stars}
+					color1={ "gray" }
+					color2={ "#EF002F" }
+					edit={ false } />
+				<div className="text-small star-rating">{ stars.toFixed(1) }</div>
+				<div className="text-small" id="dined">Dined { dateDisplay }</div>
+			</div>
+		)
 	}
 
 	renderReadMoreButton() {
@@ -36,7 +54,7 @@ class Review extends React.Component {
 	}
 
 	render() {
-		const { stars, date, text, name } = this.props.review;
+		const { stars, text, name } = this.props.review;
 		const { isExpanded } = this.state;
 		const { filters } = this.props;
 
@@ -49,16 +67,9 @@ class Review extends React.Component {
 		return (
 			<div className="review">
 				<div className="header-text">{ name }</div>
-				<div className="stars-section">
-					<ReactStars 
-							count={ 5 } 
-							value={ stars}
-							color1={ "gray" }
-							color2={ "#EF002F" }
-							edit={ false } />
-					<div className="text-small">{ (stars).toFixed(1) }</div>
-					<div className="text-small">{ date }</div>
-				</div>
+
+				{ this.renderStarsSection() }
+				
 				<div className={classNames({text: true, [toggledClass]: true})}>{ text }</div>
 
 	      { text.length > this.maxChars &&

@@ -21,7 +21,8 @@ class RatingsDetails extends React.Component {
 						color1={ "gray" }
 						color2={ "#EF002F" }
 						edit={ false } />
-					<div>{ overall } based on recent ratings</div>
+					<div className="star-rating">{ overall.toFixed(1) }</div>
+					<div>based on recent ratings</div>
 				</div>
 				<div className="sub-ratings text-small">Food || Service || Ambience || Value</div>
 				<div className="noise text-small">Noise * Moderate</div>

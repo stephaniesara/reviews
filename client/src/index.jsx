@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
 // ID # from proxy server
-// workable ids: 5, 12, 13, 15, 17 ...
-var iterator = 17;
+// workable ids: 1, 5, 12, 13, 15, 17 ...
+var iterator = 1;
 
 ReactDOM.render(
 	<App iterator={ iterator } />,
