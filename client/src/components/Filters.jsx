@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 
 // https://react-component.github.io/checkbox/examples/simple.html
 import Checkbox from 'rc-checkbox';

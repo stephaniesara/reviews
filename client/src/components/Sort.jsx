@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 
 // https://www.npmjs.com/package/react-dropdown
 import Dropdown from 'react-dropdown';

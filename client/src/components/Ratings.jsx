@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 import RatingsBarList from './RatingsBarList.jsx';
 import RatingsDetails from './RatingsDetails.jsx';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 import ReactStars from 'react-stars';
 import classNames from 'classnames';
 import moment from 'moment';

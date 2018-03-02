@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from '../../../node_modules/jquery';
+import $ from 'jquery';
 import { ProgressBar } from 'react-bootstrap';
 
 class RatingsBar extends React.Component {
