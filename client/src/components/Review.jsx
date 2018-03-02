@@ -13,10 +13,10 @@ class Review extends React.Component {
 			isExpanded: false
 		}
 		this.toggleTextClass = this.toggleTextClass.bind(this);
-		this.renderStarsSection = this.renderStarsSection.bind(this);
+		this.renderStars = this.renderStars.bind(this);
 	}
 
-	renderStarsSection() {
+	renderStars() {
 		const { stars, date } = this.props.review;
 
 		const dateDisplay = moment(date).add(7, 'd') > this.today 
@@ -68,7 +68,7 @@ class Review extends React.Component {
 			<div className="review">
 				<div className="header-text">{ name }</div>
 
-				{ this.renderStarsSection() }
+				{ this.renderStars() }
 				
 				<div className={classNames({text: true, [toggledClass]: true})}>{ text }</div>
 
