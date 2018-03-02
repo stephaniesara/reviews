@@ -9,7 +9,7 @@ class RatingsDetails extends React.Component {
 	}
 
 	render() {
-		const { overall } = this.props;
+		const { details } = this.props;
 	
 		return (
 			<div className="details">
@@ -17,16 +17,16 @@ class RatingsDetails extends React.Component {
 				<div className="stars-section text-small">
 					<ReactStars 
 						count={ 5 } 
-						value={ overall }
+						value={ details.stars }
 						color1={ "gray" }
 						color2={ "#EF002F" }
 						edit={ false } />
-					<div className="star-rating">{ overall.toFixed(1) }</div>
+					<div className="star-rating">{ details.stars.toFixed(1) }</div>
 					<div>based on recent ratings</div>
 				</div>
-				<div className="sub-ratings text-small">Food || Service || Ambience || Value</div>
-				<div className="noise text-small">Noise * Moderate</div>
-				<div className="recommended text-small">x% of people would recommend to a friend</div>
+				<div className="sub-ratings text-small">Food {details.stars_food} || Service {details.stars_service} || Ambience {details.stars_ambience} || Value {details.stars_value}</div>
+				<div className="noise text-small">Noise * {details.noise}</div>
+				<div className="recommended text-small">{details.recommend}% of people would recommend to a friend</div>
 			</div>
 		)
 	}

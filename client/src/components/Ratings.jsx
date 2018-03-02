@@ -9,13 +9,11 @@ class Ratings extends React.Component {
 	}
 
 	render() {
-		const details = this.props.details;
+		const { details, review_count } = this.props;
 
 		if (Object.keys(details).length === 0) {
 			return null;
 		}
-
-		const { review_count, ratings } = details;
 
 		return (
 			<div className="ratings">
@@ -24,7 +22,7 @@ class Ratings extends React.Component {
 				</div>
 				<div className="header-text">Overall ratings and reviews</div>
 				<div className="sub-title">
-					<RatingsDetails overall={ ratings.overall } />
+					<RatingsDetails details={ details } />
 					<RatingsBarList
 						review_count={ review_count }
 						handleRatingSelect={ this.props.handleRatingSelect } />

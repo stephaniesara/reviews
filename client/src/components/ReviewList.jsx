@@ -2,7 +2,7 @@ import React from 'react';
 import $ from '../../../node_modules/jquery';
 import Review from './Review.jsx';
 
-class Reviews extends React.Component {
+class ReviewList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.getSorted = this.getSorted.bind(this);
@@ -36,4 +36,4 @@ class Reviews extends React.Component {
 	}
 }
 
-export default Reviews;
+export default ReviewList;

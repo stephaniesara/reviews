@@ -4,44 +4,19 @@ const _sendError = (res, err) => {
 	res.status(500).send(err);
 }
 
-// var details = {
-// 	count: {
-// 		overall
-// 		5
-// 		4
-// 		3
-// 		2
-// 		1
-// 	},
-// 	ratings: {
-// 		overall
-// 		food
-// 		service
-// 		ambience
-// 		value
-// 	},
-// 	noise: #,
-// 	recommend: #
-// }
-
-const _getDetails = (restaurant, reviews) => {
-	var details = {
-		review_count: {
-			overall: restaurant.review_count,
-			5: 0,
-			4: 0,
-			3: 0,
-			2: 0,
-			1: 0
-		},
-		ratings: {
-			overall: restaurant.stars
-		}
+const _getReviewCount = (restaurant, reviews) => {
+	var review_count = {
+		overall: restaurant.review_count,
+		5: 0,
+		4: 0,
+		3: 0,
+		2: 0,
+		1: 0
 	}
 	reviews.forEach(review => {
-		details.review_count[review.stars]++;
+		review_count[review.stars]++;
 	})
-	return details;
+	return review_count;
 }
 
 module.exports = {
@@ -57,18 +32,20 @@ module.exports = {
 				if (err) {
 					_sendError(res, err);
 				} else {
-					const restaurant = detailsResult[0];
+					// console.log(detailsResult);
+					const details = detailsResult[0];
 
-					model.reviews.get(restaurant.id, (err, reviewsResult) => {
+					model.reviews.get(details.id, (err, reviewsResult) => {
 						if (err) {
 							_sendError(res, err);
 						} else {
 							// send back restaurant details and reviews to client
 							
-							var details = _getDetails(restaurant, reviewsResult);
+							var review_count = _getReviewCount(details, reviewsResult);
 							var result = {
 								details: details,
-								reviews: reviewsResult
+								reviews: reviewsResult,
+								review_count: review_count
 							};
 							res.status(200).json(result);
 						}
