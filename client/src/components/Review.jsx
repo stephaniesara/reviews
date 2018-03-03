@@ -1,8 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import ReactStars from 'react-stars';
-import classNames from 'classnames';
 import moment from 'moment';
+import Report from './Report.jsx';
+import Helpful from './Helpful.jsx';
 
 class Review extends React.Component {
 	constructor(props) {
@@ -14,6 +15,12 @@ class Review extends React.Component {
 		}
 		this.toggleTextClass = this.toggleTextClass.bind(this);
 		this.renderStarsSection = this.renderStarsSection.bind(this);
+	}
+
+	toggleTextClass() {
+		this.setState({
+			isExpanded: !this.state.isExpanded
+		});
 	}
 
 	renderStarsSection() {
@@ -38,19 +45,17 @@ class Review extends React.Component {
 	}
 
 	renderReadMoreButton() {
+		const { text } = this.props.review;
+		if (text.length <= this.maxChars) {
+			return ( <div></div> );
+		}
     return (
     	<div 
     		className="read-more"
     		onClick={ this.toggleTextClass }>
     		{ this.state.isExpanded ? '- Read less' : '+ Read more' }
     	</div>
-   );
-	}
-
-	toggleTextClass() {
-		this.setState({
-			isExpanded: !this.state.isExpanded
-		});
+   	);
 	}
 
 	render() {
@@ -58,25 +63,23 @@ class Review extends React.Component {
 		const { isExpanded } = this.state;
 		const { filters } = this.props;
 
-		var toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
+		const toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
 
 		if (Object.keys(filters).length !== 0 && filters.stars !== stars) {
 			return null;
 		}
-
 		return (
 			<div className="review">
 				<div className="header-text">{ name }</div>
-
 				{ this.renderStarsSection() }
-				
-				<div className={classNames({text: true, [toggledClass]: true})}>{ text }</div>
-
-	      { text.length > this.maxChars &&
-	      	this.renderReadMoreButton() }
-
-				<div className="report-helpful">
-				  Report || Helpful </div>
+				<div className={`text ${ toggledClass } `}>{ text }</div>
+	      <div className="review-footer">
+	      	{ this.renderReadMoreButton() }
+					<div className="report-helpful">
+						<Report />
+						<Helpful />
+					</div>
+				</div>
 			</div>
 		)
 	}
