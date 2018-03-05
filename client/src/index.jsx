@@ -8,6 +8,7 @@ import App from './components/App.jsx';
 
 // get restaurant iterator from the page URL
 let iterator = window.location.href.split("/").pop().substring(4) || '1';
+// var iterator = 2;
 
 ReactDOM.render(
 	<App iterator={ iterator } />,
