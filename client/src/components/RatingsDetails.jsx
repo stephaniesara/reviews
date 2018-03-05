@@ -6,27 +6,88 @@ import ReactStars from 'react-stars';
 class RatingsDetails extends React.Component {
 	constructor(props) {
 		super(props);
+		this.renderStars = this.renderStars.bind(this);
+		this.renderSubratings = this.renderSubratings.bind(this);
+		this.renderNoise = this.renderNoise.bind(this);
+		this.renderRecommend = this.renderRecommend.bind(this);
+	}
+
+	renderStars() {
+		const { stars } = this.props.details;
+		return (
+			<div className="stars-section text-small">
+				<ReactStars 
+					count={ 5 } 
+					value={ stars }
+					color1={ "gray" }
+					color2={ "#EF002F" }
+					edit={ false } />
+				<div className="star-rating">{ stars.toFixed(1) }</div>
+				<div>based on recent ratings</div>
+			</div>
+		)
+	}
+
+	renderSubratings() {
+		const { details } = this.props;
+		const Subrating = ({ rating, label }) => {
+			return (
+				<div className="subrating">
+					<span className="subrating-large">{rating}</span>
+					<span className="subrating-small">{label}</span>
+				</div>
+			)
+		}
+		return (
+			<div id="subrating-list">
+				<Subrating rating={ details.stars_food } label="Food" />
+				<div className="vl"></div>
+				<Subrating rating={ details.stars_service } label="Service" />
+				<div className="vl"></div>
+				<Subrating rating={ details.stars_ambience } label="Ambience" />
+				<div className="vl"></div>
+				<Subrating rating={ details.stars_value } label="Value" />
+			</div>
+		)
+	}
+
+	renderNoise(iconStyle, divStyle) {
+		return (
+			<div style={divStyle}>
+				<i className="fas fa-signal" style={iconStyle}></i>
+				<div className="noise subrating-small">
+					<b>Noise</b> · {this.props.details.noise}</div>
+			</div>
+		)
+	}
+
+	renderRecommend(iconStyle, divStyle) {
+		return (
+			<div style={divStyle}>
+				<i className="far fa-thumbs-up" style={iconStyle}></i>
+				<div className="recommended subrating-small">
+					<b>{this.props.details.recommend}% of people</b> would recommend it to a friend</div>
+			</div>
+		)
 	}
 
 	render() {
 		const { details } = this.props;
+		const divStyle = {
+			'display': 'flex',
+			'flexDirection': 'row'
+		}
+		const iconStyle = {
+			'marginRight': '10px'
+		}
 	
 		return (
 			<div className="details">
 				<div className="text">Reviews can only be made by diners who have eaten at this restaurant</div>
-				<div className="stars-section text-small">
-					<ReactStars 
-						count={ 5 } 
-						value={ details.stars }
-						color1={ "gray" }
-						color2={ "#EF002F" }
-						edit={ false } />
-					<div className="star-rating">{ details.stars.toFixed(1) }</div>
-					<div>based on recent ratings</div>
-				</div>
-				<div className="sub-ratings text-small">Food {details.stars_food} || Service {details.stars_service} || Ambience {details.stars_ambience} || Value {details.stars_value}</div>
-				<div className="noise text-small">Noise * {details.noise}</div>
-				<div className="recommended text-small">{details.recommend}% of people would recommend to a friend</div>
+				{ this.renderStars() }
+				{ this.renderSubratings() }
+				{ this.renderNoise(iconStyle, divStyle) }
+				{ this.renderRecommend(iconStyle, divStyle) }
 			</div>
 		)
 	}

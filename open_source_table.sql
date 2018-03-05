@@ -40,9 +40,9 @@ ADD COLUMN noise varchar(20) DEFAULT NULL,
 ADD COLUMN recommend integer DEFAULT NULL;
 
 UPDATE open_source_table_about
-SET stars_food = 4.6, stars_service = 4.5, stars_ambience = 4.3, stars_value = 4.2, noise = 'moderate', recommend = 92
+SET stars_food = 4.6, stars_service = 4.5, stars_ambience = 4.3, stars_value = 4.2, noise = 'Moderate', recommend = 92
 WHERE stars = 4.5;
 
 UPDATE open_source_table_about
-SET stars_food = 4.3, stars_service = 4.2, stars_ambience = 3.9, stars_value = 4.1, noise = 'quiet', recommend = 87
+SET stars_food = 4.3, stars_service = 4.2, stars_ambience = 3.9, stars_value = 4.1, noise = 'Quiet', recommend = 87
 WHERE stars = 4.0;

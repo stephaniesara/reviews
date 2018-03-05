@@ -14,7 +14,7 @@ class Review extends React.Component {
 			isExpanded: false
 		}
 		this.toggleTextClass = this.toggleTextClass.bind(this);
-		this.renderStarsSection = this.renderStarsSection.bind(this);
+		this.renderStars = this.renderStars.bind(this);
 	}
 
 	toggleTextClass() {
@@ -23,7 +23,7 @@ class Review extends React.Component {
 		});
 	}
 
-	renderStarsSection() {
+	renderStars() {
 		const { stars, date } = this.props.review;
 
 		const dateDisplay = moment(date).add(7, 'd') > this.today 
@@ -71,7 +71,7 @@ class Review extends React.Component {
 		return (
 			<div className="review">
 				<div className="header-text">{ name }</div>
-				{ this.renderStarsSection() }
+				{ this.renderStars() }
 				<div className={`text ${ toggledClass } `}>{ text }</div>
 	      <div className="review-footer">
 	      	{ this.renderReadMoreButton() }
