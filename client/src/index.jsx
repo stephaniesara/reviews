@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
+import './styles.css';
 
 // ID # from proxy server
 // workable ids: 1, 5, 12, 13, 15, 17 ...

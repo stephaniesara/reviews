@@ -18,10 +18,22 @@ module.exports = {
           presets: ['react', 'es2015']
         }
       },
+      // {
+      //   test : /\.css$/,
+      //   include: /node_modules/,
+      //   loaders: ['style-loader', 'css-loader']
+      // }
       {
-        test : /\.css$/,
-        include: /node_modules/,
-        loaders: ['style-loader', 'css-loader']
+        test: /\.css$/,
+        // include: /node_modules/,
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        // include: /node_modules/,
+        loader: 'css-loader'
+        // query: {
+        //   modules: true
+        // }
       }
     ]
   }
