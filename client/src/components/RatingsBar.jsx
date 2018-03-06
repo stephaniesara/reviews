@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import { ProgressBar } from 'react-bootstrap';
+// import { ProgressBar } from 'react-bootstrap';
 
 class RatingsBar extends React.Component {
 	constructor(props) {
@@ -18,15 +18,17 @@ class RatingsBar extends React.Component {
 		const { label, percent } = this.props;
 
 		return (
-			<div className="bar-div">{ label } 
-				<ProgressBar 
-					className="bar" 
-					now={ percent } 
-					onClick={ this.handleClick }
-				/>
+			<div className="bar-outer">{ label } 
+
 			</div>
 		)
 	}
 }
 
 export default RatingsBar;
+
+				// <ProgressBar 
+				// 	className="bar" 
+				// 	now={ percent } 
+				// 	onClick={ this.handleClick }
+				// />

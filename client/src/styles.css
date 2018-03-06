@@ -50,9 +50,19 @@ h2 {
 	justify-content: space-between;
 }
 .ratings .bars {
+	border: 1px solid grey;
 	flex-basis: 40%;
+	justify-content: flex-start;
+	align-items: flex-start
 }
-.ratings .bar {
+.bar-outer {
+	display: flex;
+	flex-direction: row;
+	margin: 0px 0px 10px 0px;
+	height: 20px;
+	border: 1px solid grey;
+}
+.bar-inner {
 	display: flex;
 	flex-direction: row;
 	align-items: baseline;
@@ -61,12 +71,8 @@ h2 {
 	margin: auto;
 	margin-left: 10px;
 }
-.bar:hover {
+.bar-inner:hover {
 	border: 2px solid #EF002F;
-}
-.ratings .bar-div {
-	display: flex;
-	flex-direction: row;
 }
 #subrating-list {
 	display: flex;
