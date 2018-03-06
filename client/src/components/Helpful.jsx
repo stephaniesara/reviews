@@ -23,4 +23,4 @@ class Helpful extends React.Component {
 	}
 }
 
-module.exports = Helpful;
+export default Helpful;

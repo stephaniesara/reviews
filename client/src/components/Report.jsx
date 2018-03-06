@@ -23,4 +23,4 @@ class Report extends React.Component {
 	}
 }
 
-module.exports = Report;
+export default Report;
