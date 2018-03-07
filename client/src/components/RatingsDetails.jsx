@@ -2,6 +2,9 @@ import React from 'react';
 import $ from 'jquery';
 // https://github.com/n49/react-stars
 import ReactStars from 'react-stars';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faSignal } from '@fortawesome/fontawesome-free-solid'
+import { faThumbsUp } from '@fortawesome/fontawesome-free-regular'
 
 class RatingsDetails extends React.Component {
 	constructor(props) {
@@ -51,10 +54,14 @@ class RatingsDetails extends React.Component {
 		)
 	}
 
+				// <i className="fas fa-signal" style={iconStyle}></i>
+
 	renderNoise(iconStyle, divStyle) {
 		return (
 			<div style={divStyle}>
-				<i className="fas fa-signal" style={iconStyle}></i>
+				<div><FontAwesomeIcon 
+					icon={ faSignal }
+					style={iconStyle} /> </div>
 				<div className="noise subrating-small">
 					<b>Noise</b> · {this.props.details.noise}</div>
 			</div>
@@ -64,7 +71,9 @@ class RatingsDetails extends React.Component {
 	renderRecommend(iconStyle, divStyle) {
 		return (
 			<div style={divStyle}>
-				<i className="far fa-thumbs-up" style={iconStyle}></i>
+				<div><FontAwesomeIcon 
+					icon={ faThumbsUp }
+					style={iconStyle} /> </div>
 				<div className="recommended subrating-small">
 					<b>{this.props.details.recommend}% of people</b> would recommend it to a friend</div>
 			</div>

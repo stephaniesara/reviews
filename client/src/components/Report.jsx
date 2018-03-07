@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faFlag } from '@fortawesome/fontawesome-free-regular'
 
 class Report extends React.Component {
 	constructor(props) {
@@ -16,7 +18,7 @@ class Report extends React.Component {
 			<div 
 				className="report" 
 				onClick={ this.handleClickReport }>
-				<div><i className='far fa-flag'></i></div>
+				<FontAwesomeIcon icon={ faFlag } />
 				<div className="text-small">Report</div>
 			</div>
 		)
