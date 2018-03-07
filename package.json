@@ -10,8 +10,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server/index.js",
-    "dev-react": "webpack -d --watch",
-    "worker": "node worker.js"
+    "dev-react": "webpack -d --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
