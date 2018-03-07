@@ -61,13 +61,13 @@ class Review extends React.Component {
 	render() {
 		const { stars, text, name } = this.props.review;
 		const { isExpanded } = this.state;
-		const { filters } = this.props;
+		// const { filters } = this.props;
 
 		const toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
 
-		if (Object.keys(filters).length !== 0 && filters.stars !== stars) {
-			return null;
-		}
+		// if (Object.keys(filters).length !== 0 && filters.stars !== stars) {
+		// 	return null;
+		// }
 		return (
 			<div className="review">
 				<div className="header-text">{ name }</div>

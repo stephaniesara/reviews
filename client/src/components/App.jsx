@@ -5,6 +5,7 @@ import ReviewList from './ReviewList.jsx';
 import Sort from './Sort.jsx';
 import Filters from './Filters.jsx';
 import PageNavigator from './PageNavigator.jsx';
+import moment from 'moment';
 
 class App extends React.Component {
 	constructor(props) {
@@ -14,7 +15,9 @@ class App extends React.Component {
 			details: {},
 			reviews: [],
 			sort: 'Newest',
-			filters: {},
+			// filters: {},
+			filter: 0,
+			reviews_filtered: null,
 			perPage: 20,
 			offset: 0 
 		}
@@ -46,18 +49,52 @@ class App extends React.Component {
 
 	handleSelectSort(value) {
 		console.log('handleSelectSort', value);
-		this.setState({
-			sort: value
-		})
+
+		const _sortFunc = {
+			'Newest': (a, b) => {
+				if (moment(a.date).isAfter(b.date)) {
+					return -1;
+				} else {
+					return 1;
+				}
+			},
+			'Highest rating': (a, b) => {
+				return b.stars - a.stars;
+			},
+			'Lowest rating': (a, b) => {
+				return a.stars - b.stars;
+			}
+		}
+
+		const { sort, reviews } = this.state;
+		if (sort !== value) {
+			const comparator = _sortFunc[value];
+			const sortedReviews = reviews.sort(comparator);
+			this.setState({
+				sort: value,
+				reviews: sortedReviews
+			})
+		}
 	}
 
 	handleRatingSelect(label) {
 		console.log('handleRatingSelect', label);
-		const newFilters = this.state.filters;
-		newFilters.stars = label;
+		const { reviews } = this.state;
+		// console.log(label);
+		// console.log(typeof(label))
+		// console.log(reviews[0].stars)
+		const reviews_filtered = reviews.filter(review => review.stars === label);
+		// console.log(reviews_filtered)
+
 		this.setState({
-			filters: newFilters
+			filter: label,
+			reviews_filtered: reviews_filtered
 		})
+		// const newFilters = this.state.filters;
+		// newFilters.stars = label;
+		// this.setState({
+		// 	filters: newFilters
+		// })
 	}
 
 	handlePageClick(data) {
@@ -72,12 +109,16 @@ class App extends React.Component {
 	clearFilter() {
 		console.log('clearFilter');
 		this.setState({
-			filters: {}
+			filter: 0,
+			reviews_filtered: null,
+			offset: 0
 		})
 	}
 
 	render() {
-		const { details, reviews, sort, filters, review_count, pageCount, offset, perPage } = this.state;
+		const { details, filter, review_count, pageCount, offset, perPage } = this.state;
+
+		const reviews = filter ? this.state.reviews_filtered : this.state.reviews;
 
 		return (
 			<div>
@@ -88,12 +129,14 @@ class App extends React.Component {
 				<Sort 
 					handleSelectSort={ this.handleSelectSort }/>
 				<Filters 
-					filters={ filters }
+					// filters={ filters }
+					filter={ filter }
 					clearFilter={ this.clearFilter }/>
 				<ReviewList
 					reviews={ reviews.slice(offset, offset + perPage) }
-					sort={ sort }
-					filters={ filters }/>
+					// sort={ sort }
+					// filters={ filters }
+					/>
 				<PageNavigator 
 					pageCount={ pageCount }
 					handlePageClick={ this.handlePageClick }/>

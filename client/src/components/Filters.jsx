@@ -12,10 +12,10 @@ class Filters extends React.Component {
 			disabled: false
 		}
 		this.renderCheckbox = this.renderCheckbox.bind(this);
-		this.handleSelect = this.handleSelect.bind(this);
+		this.clearFilter = this.clearFilter.bind(this);
 	}
 
-	handleSelect(e) {
+	clearFilter(e) {
 		if (!this.state.disabled) {
 			this.props.clearFilter();
 		}
@@ -23,13 +23,13 @@ class Filters extends React.Component {
 
 	renderCheckbox() {
 		return (
-			<div className="filter" onClick={this.handleSelect}>
+			<div className="filter" onClick={this.clearFilter}>
 			<label>
 				<Checkbox 
 					defaultChecked
 					onChange={this.handleSelect}
 					disabled={this.state.disabled}/>
-					{ this.props.filters.stars } stars
+					{ this.props.filter } stars
 				</label>
 				</div>
 		)
@@ -37,12 +37,12 @@ class Filters extends React.Component {
 	
 
 	render() {
-		const { filters } = this.props;
+		const { filter } = this.props;
 		
 		return (
 			<div id="filters">
 				<div className="header-text">Filters
-					{ Object.keys(filters).length > 0 && this.renderCheckbox() }
+					{ filter > 0 && this.renderCheckbox() }
 				</div>
 			</div>
 		)
