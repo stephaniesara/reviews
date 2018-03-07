@@ -1,3 +1,6 @@
+/** {
+	border: 1px solid black;
+}*/
 body {
 	font-size: 16px;
 	font-family: 'Mukta Malar', sans-serif;
@@ -51,22 +54,33 @@ h2 {
 }
 .ratings .bars {
 	flex-basis: 40%;
+	/*justify-content: flex-start;*/
+	/*align-items: flex-start*/
+	/*padding: 0px;*/
 }
-.ratings .bar {
+.bar {
+	padding: 0px;
 	display: flex;
 	flex-direction: row;
-	align-items: baseline;
-	height: 15px;
-	width: 220px;
-	margin: auto;
+	margin-bottom: 5px;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.bar-outer {
 	margin-left: 10px;
+	border: 2px solid #E1E1E1;
+	width: 220px;
+	height: 15px;
 }
-.bar:hover {
+.bar-inner {
+	height: 15px;
+	background: #EF002F;
+}
+.hover-text {
+	text-decoration: underline;
+}
+.hover-bar {
 	border: 2px solid #EF002F;
-}
-.ratings .bar-div {
-	display: flex;
-	flex-direction: row;
 }
 #subrating-list {
 	display: flex;
