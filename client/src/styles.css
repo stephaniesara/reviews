@@ -1,3 +1,6 @@
+/** {
+	border: 1px solid black;
+}*/
 body {
 	font-size: 16px;
 	font-family: 'Mukta Malar', sans-serif;
@@ -50,28 +53,33 @@ h2 {
 	justify-content: space-between;
 }
 .ratings .bars {
-	border: 1px solid grey;
 	flex-basis: 40%;
+	/*justify-content: flex-start;*/
+	/*align-items: flex-start*/
+	/*padding: 0px;*/
+}
+.bar {
+	padding: 0px;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 5px;
+	align-items: flex-start;
 	justify-content: flex-start;
-	align-items: flex-start
 }
 .bar-outer {
-	display: flex;
-	flex-direction: row;
-	margin: 0px 0px 10px 0px;
-	height: 20px;
-	border: 1px solid grey;
+	margin-left: 10px;
+	border: 2px solid #E1E1E1;
+	width: 220px;
+	height: 15px;
 }
 .bar-inner {
-	display: flex;
-	flex-direction: row;
-	align-items: baseline;
 	height: 15px;
-	width: 220px;
-	margin: auto;
-	margin-left: 10px;
+	background: #EF002F;
 }
-.bar-inner:hover {
+.hover-text {
+	text-decoration: underline;
+}
+.hover-bar {
 	border: 2px solid #EF002F;
 }
 #subrating-list {
