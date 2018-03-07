@@ -22,15 +22,15 @@ module.exports = {
       //   test : /\.css$/,
       //   include: /node_modules/,
       //   loaders: ['style-loader', 'css-loader']
-      // }
+      // },
       {
         test: /\.css$/,
         // include: /node_modules/,
-        loader: 'style-loader'
+        use: 'style-loader'
       }, {
         test: /\.css$/,
         // include: /node_modules/,
-        loader: 'css-loader'
+        use: 'css-loader'
         // query: {
         //   modules: true
         // }
