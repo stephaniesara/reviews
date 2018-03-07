@@ -26,10 +26,11 @@ class Sort extends React.Component {
 
 	handleChange(selected) {
 		const { value } = selected; 
+		const { handleSelectSort } = this.props;
 		this.setState({
 			selected: value
 		})
-		this.props.handleSelectSort(value);
+		handleSelectSort(value);
 	}
 
 	render() {
