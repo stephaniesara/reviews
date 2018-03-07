@@ -25,15 +25,10 @@ module.exports = {
       // },
       {
         test: /\.css$/,
-        // include: /node_modules/,
         use: 'style-loader'
       }, {
         test: /\.css$/,
-        // include: /node_modules/,
         use: 'css-loader'
-        // query: {
-        //   modules: true
-        // }
       }
     ]
   }
