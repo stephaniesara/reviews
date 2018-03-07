@@ -5,11 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // to use react-paginate with bootstrap4
 // https://github.com/AdeleD/react-paginate/issues/182
 
-const PageNavigator = ({ pageCount, handlePageClick }) => {
+const PageNavigator = ({ pageCount, handlePageClick, currPage }) => {
 	return (
 		<div id="page-navigator"><ReactPaginate
 			className="pagination justify-content-center"
 			previousLabel={ "<" }
+			forcePage={ currPage }
 			nextLabel={ ">" }
 			breakLabel={<a className="page-link">...</a>}
 			breakClassName={ `break-me page-item` }
