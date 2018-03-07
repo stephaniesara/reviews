@@ -5,7 +5,7 @@ body {
 	font-size: 16px;
 	font-family: 'Mukta Malar', sans-serif;
 }
-#app {
+#reviews {
 	display: flex;
 	width: 650px;
 	margin: auto;
@@ -134,7 +134,7 @@ h2 {
 .dropdown:hover {
 	border: 2px solid #EF002F;
 }
-.reviews {
+.review-list {
 	display: flex;
 	flex-flow: column wrap;
 	/*width: 600px;*/

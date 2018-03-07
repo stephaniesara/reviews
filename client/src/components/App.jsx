@@ -35,7 +35,7 @@ class App extends React.Component {
 		const { iterator } = this.props;
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3002/reviews/' + iterator,
+			url: '/reviews/' + iterator,
 			success: (result) => {
 				console.log(result);
 				this.setState({

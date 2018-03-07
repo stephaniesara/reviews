@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `review`
+-- Table structure for table `reviews`
 --
 
-DROP TABLE IF EXISTS `review`;
+DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `review` (
+CREATE TABLE `reviews` (
   `id` varchar(22) NOT NULL,
   `business_id` varchar(22) NOT NULL,
   `user_id` varchar(22) NOT NULL,

@@ -1,13 +1,15 @@
 const express = require('express');
-const Promise = require('bluebird');
+const morgan = require('morgan');
+const path = require('path');
 const controller = require('./controllers');
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 const app = express();
 
-app.use(express.static('client/dist'));
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/reviews/:iterator', controller.get);
+app.use('/reviews/:iterator', controller.get);
 
 app.listen(port, () => {
 	console.log(`reviews server running at: http://localhost:${port}`);
