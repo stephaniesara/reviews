@@ -3,8 +3,8 @@ const db = require('../db');
 module.exports = {
 	ratings: {
 		get: (iterator, callback) => {
-			const queryString = 'select * from open_source_table_about where iterator = \'' + iterator + '\'';
-			db.query('use open_source_table');
+			const queryString = 'select * from details where iterator = \'' + iterator + '\'';
+			db.query('use open_source_table_reviews');
 			db.query(queryString, callback);
 		}
 	},
