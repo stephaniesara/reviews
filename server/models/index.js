@@ -24,6 +24,7 @@ module.exports = {
 				str.push(key + ' as ' + props[key]);
 			}
 			queryString += str.join(', ');
+			// TODO change 'business' to 'details'
 			queryString += ' from business, user, review \
 			where review.business_id = business.id \
 			and user.id = review.user_id \

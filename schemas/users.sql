@@ -1,0 +1,20 @@
+| id                 | varchar(22)  | NO   | PRI | NULL    |       |
+| name               | varchar(255) | YES  |     | NULL    |       |
+| review_count       | int(11)      | YES  |     | NULL    |       |
+| yelping_since      | datetime     | YES  |     | NULL    |       |
+| useful             | int(11)      | YES  |     | NULL    |       |
+| funny              | int(11)      | YES  |     | NULL    |       |
+| cool               | int(11)      | YES  |     | NULL    |       |
+| fans               | int(11)      | YES  |     | NULL    |       |
+| average_stars      | float        | YES  |     | NULL    |       |
+| compliment_hot     | int(11)      | YES  |     | NULL    |       |
+| compliment_more    | int(11)      | YES  |     | NULL    |       |
+| compliment_profile | int(11)      | YES  |     | NULL    |       |
+| compliment_cute    | int(11)      | YES  |     | NULL    |       |
+| compliment_list    | int(11)      | YES  |     | NULL    |       |
+| compliment_note    | int(11)      | YES  |     | NULL    |       |
+| compliment_plain   | int(11)      | YES  |     | NULL    |       |
+| compliment_cool    | int(11)      | YES  |     | NULL    |       |
+| compliment_funny   | int(11)      | YES  |     | NULL    |       |
+| compliment_writer  | int(11)      | YES  |     | NULL    |       |
+| compliment_photos  | int(11)      | YES  |     | NULL    |       |
