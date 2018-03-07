@@ -21,5 +21,6 @@ db.query(queryString, (err, result) => {
 	fs.writeFile('ids.json', JSON.stringify(result), err => {
 		if (err) throw err;
 		console.log('data has been written to file ids.json');
+		db.end();
 	})
 })

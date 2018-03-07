@@ -36,8 +36,7 @@
     "react-stars": "^2.2.5",
     "react-truncate": "^2.3.0",
     "request": "^2.83.0",
-    "style-loader": "^0.20.2",
-    "yelp-fusion": "^2.0.3"
+    "style-loader": "^0.20.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

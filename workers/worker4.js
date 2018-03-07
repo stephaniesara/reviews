@@ -19,5 +19,6 @@ db.query(queryString, (err, result) => {
 	fs.writeFile('users.json', JSON.stringify(result), err => {
 		if (err) throw err;
 		console.log('data has been written to file users.json');
+		db.end();
 	})
 })
