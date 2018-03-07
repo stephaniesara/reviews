@@ -12,10 +12,10 @@ db.connect(err => {
 	console.log('connected to mysql db!');
 });
 
-db.query('use open_source_table');
+db.query('use open_source_table_reviews');
 
 // query db for businesses matching iterators 1-267
-var queryString = 'select * from open_source_table_about';
+var queryString = 'select * from details';
 db.query(queryString, (err, result) => {
 	if (err) throw err;
 	fs.writeFile('data.json', JSON.stringify(result), err => {
