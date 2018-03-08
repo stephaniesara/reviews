@@ -63,7 +63,7 @@ $ mysql.server start
 ### Starting Webpack 
 
 ```sh
-$ npm run dev-react
+$ npm run react-dev
 ```
 
 ### Running Server
