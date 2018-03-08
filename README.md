@@ -60,13 +60,7 @@ Then start MySQL or ensure it is running.
 $ mysql.server start
 ```
 
-### Starting Webpack 
-
-```sh
-$ npm run react-dev
-```
-
-### Running Server
+### Starting Webpack and Running Server
 
 If your MySQL root user requires a password:
 Update password in **/server/db/index.js**
@@ -81,6 +75,12 @@ To render restaurant of id **n** where **n** is between 1-267:
 
 ```sh
 http://localhost:3002/?id=n
+```
+
+Example:
+
+```sh
+http://localhost:3002/?id=122
 ```
 
 Or to default to restaurant of id **n**=1:
