@@ -18,7 +18,7 @@ class App extends React.Component {
 			sort: 'Newest',
 			filter: 0,
 			reviews_filtered: null,
-			perPage: 20,
+			perPage: 10,
 			offset: 0 
 		}
 		this._getPageCount = this._getPageCount.bind(this);
