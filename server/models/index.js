@@ -4,7 +4,6 @@ module.exports = {
 	ratings: {
 		get: (iterator, callback) => {
 			const queryString = 'select * from details where iterator = \'' + iterator + '\'';
-			db.query('use open_source_table_reviews');
 			db.query(queryString, callback);
 		}
 	},
@@ -12,10 +11,10 @@ module.exports = {
 	reviews: {
 		get: (id, callback) => {
 			const props = {
-				'review.stars': 'stars',
-				'review.date': 'date',
-				'review.text': 'text',
-				'user.name': 'name'
+				'reviews.stars': 'stars',
+				'reviews.date': 'date',
+				'reviews.text': 'text',
+				'users.name': 'name'
 			}
 
 			var queryString = 'select ';
@@ -24,13 +23,11 @@ module.exports = {
 				str.push(key + ' as ' + props[key]);
 			}
 			queryString += str.join(', ');
-			// TODO change 'business' to 'details'
-			queryString += ' from business, user, review \
-			where review.business_id = business.id \
-			and user.id = review.user_id \
-			and business.id = \'' + id + '\' order by review.date desc';
+			queryString += ' from details, users, reviews \
+			where reviews.business_id = details.id \
+			and users.id = reviews.user_id \
+			and details.id = \'' + id + '\' order by reviews.date desc';
 
-			db.query('use yelp_db');
 			db.query(queryString, callback);
 		}
 		

@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 // https://www.npmjs.com/package/react-dropdown
 import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+// import 'react-dropdown/style.css';
 
 // https://github.com/JedWatson/react-select
 // import Select from 'react-select';
