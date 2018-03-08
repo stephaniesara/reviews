@@ -28,30 +28,61 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-### Install Dependencies
+### Installing Dependencies
 
 ```sh
 npm install -g webpack
 npm install
 ```
 
-### Seed MySQL Database
+### Seeding MySQL Database
 
-Seeding may take a couple minutes to complete.
+Run the following command to seed the database.
+Seeding is complete once you see the following terminal output:
+*Finished seeding table: details*
+*Finished seeding table: users*
+*Finished seeding table: reviews*
+
+If your MySQL root user requires a password:
+Update password in *seedReviews.js*
+
+From within the root directory:
 
 ```sh
-npm seed-db
+$ npm run seed-db
 ```
 
-Once seeded, ensure MySQL is running.
+Then start MySQL or ensure it is running.
 
 ```sh
-mysql.server start
+$ mysql.server start
 ```
 
-### Run Server and Webpack
+### Starting Webpack 
 
 ```sh
-npm start
-npm dev-react
+$ npm run dev-react
+```
+
+### Running Server
+
+If your MySQL root user requires a password:
+Update password in */server/db/index.js*
+
+```sh
+$ npm start
+```
+
+### Open Chrome, and PROFIT!
+
+To render restaurant of id *n* where *n* is between 1-267:
+
+```sh
+http://localhost:3002/?id=n
+```
+
+Or to default to restaurant of id *n*=1:
+
+```sh
+http://localhost:3002
 ```

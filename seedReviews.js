@@ -7,7 +7,7 @@ const databaseName = 'open_source_table_reviews';
 var db = mysql.createConnection({
   url: 'localhost',
   user: 'root',
-  password: ''
+  password: '' // TODO: Update with your MySQL password
 });
 
 var seedTable = function(table) {
