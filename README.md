@@ -26,9 +26,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
-From within the root directory:
-
 ### Installing Dependencies
+
+From within the root directory:
 
 ```sh
 npm install -g webpack
@@ -37,24 +37,24 @@ npm install
 
 ### Seeding MySQL Database
 
-Run the following command to seed the database.
-
-Seeding is complete once you see the following terminal output:
-
-*Finished seeding table: details*
-*Finished seeding table: users*
-*Finished seeding table: reviews*
-
-If your MySQL root user requires a password:
-Update password in **seedReviews.js**
-
 From within the root directory:
 
 ```sh
 $ npm run seed-db
 ```
 
-Then start MySQL or ensure it is running.
+If your MySQL root user requires a password:
+Update password in **seedReviews.js**
+
+Seeding is complete once you see the following terminal output. May take several minutes.
+
+```sh
+Finished seeding table: details
+Finished seeding table: users
+Finished seeding table: reviews
+```
+
+Once seeding is complete, ensure MySQL is running:
 
 ```sh
 $ mysql.server start
@@ -62,28 +62,30 @@ $ mysql.server start
 
 ### Starting Webpack and Running Server
 
-If your MySQL root user requires a password:
-Update password in **/server/db/index.js**
+From within the root directory:
 
 ```sh
 $ npm start
 ```
 
+If your MySQL root user requires a password:
+Update password in **/server/db/index.js**
+
 ### Open Chrome, and PROFIT!
 
-To render restaurant of id **n** where **n** is between 1-267:
+You can render restaurants of id **n** where **n** is between 1-267:
 
 ```sh
 http://localhost:3002/?id=n
 ```
 
-Example:
+Example: render restaurant of id **n**=122:
 
 ```sh
 http://localhost:3002/?id=122
 ```
 
-Or to default to restaurant of id **n**=1:
+Default: render restaurant of id **n**=1:
 
 ```sh
 http://localhost:3002
