@@ -8,12 +8,12 @@ import 'react-dropdown/style.css';
 // https://github.com/JedWatson/react-select
 // import Select from 'react-select';
 // import 'react-select/dist/react-select.css';
+import styles from '../styles.css';
+// import '!style-loader!css-loader!package.css'
 
 const options = [
 	'Newest', 'Highest rating', 'Lowest rating'
 ]
-
-// const defaultOption = options[0];
 
 class Sort extends React.Component {
 	constructor(props) {
@@ -33,14 +33,12 @@ class Sort extends React.Component {
 		handleSelectSort(value);
 	}
 
-	render() {
-		// const { handleSelectSort } = this.props;
-		
+	render() {		
 		return (
 			<div id="sort">
-			<div className="header-text">Sort by</div>
+			<div className= { styles.headerText }>Sort by</div>
 			<Dropdown
-				className="dropdown"
+				className= { styles.dropdown }
 				options={ options }
 				onChange={ this.handleChange }
 				value={ this.state.selected }

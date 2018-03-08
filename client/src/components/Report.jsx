@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faFlag } from '@fortawesome/fontawesome-free-regular'
+import styles from '../styles.css';
 
 class Report extends React.Component {
 	constructor(props) {
@@ -16,10 +17,10 @@ class Report extends React.Component {
 	render() {
 		return (
 			<div 
-				className="report" 
+				className={ styles.report } 
 				onClick={ this.handleClickReport }>
 				<FontAwesomeIcon icon={ faFlag } />
-				<div className="text-small">Report</div>
+				<div className={ styles.textSmall }>Report</div>
 			</div>
 		)
 	}

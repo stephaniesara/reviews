@@ -4,6 +4,7 @@ import ReactStars from 'react-stars';
 import moment from 'moment';
 import Report from './Report.jsx';
 import Helpful from './Helpful.jsx';
+import styles from '../styles.css';
 
 class Review extends React.Component {
 	constructor(props) {
@@ -31,15 +32,15 @@ class Review extends React.Component {
 			: 'on ' + moment(date, 'YYYYMMDD').format('LL');
 
 		return (
-			<div className="stars-section">
+			<div className={ styles.starsSection }>
 				<ReactStars 
 					count={ 5 } 
 					value={ stars}
 					color1={ "gray" }
 					color2={ "#EF002F" }
 					edit={ false } />
-				<div className="text-small star-rating">{ stars.toFixed(1) }</div>
-				<div className="text-small" id="dined">Dined { dateDisplay }</div>
+				<div className={ `${styles.textSmall} ${styles.starRating}` }>{ stars.toFixed(1) }</div>
+				<div className={ styles.textSmall }>Dined { dateDisplay }</div>
 			</div>
 		)
 	}
@@ -51,7 +52,7 @@ class Review extends React.Component {
 		}
     return (
     	<div 
-    		className="read-more"
+    		className={ styles.readMore }
     		onClick={ this.toggleTextClass }>
     		{ this.state.isExpanded ? '- Read less' : '+ Read more' }
     	</div>
@@ -63,19 +64,19 @@ class Review extends React.Component {
 		const { isExpanded } = this.state;
 		// const { filters } = this.props;
 
-		const toggledClass = isExpanded || text.length <= this.maxChars ? 'expanded' : 'collapsed';
+		const toggledClass = isExpanded || text.length <= this.maxChars ? `${styles.expanded}` : `${styles.collapsed}`;
 
 		// if (Object.keys(filters).length !== 0 && filters.stars !== stars) {
 		// 	return null;
 		// }
 		return (
-			<div className="review">
-				<div className="header-text">{ name }</div>
+			<div className={ styles.review }>
+				<div className={ styles.headerText }>{ name }</div>
 				{ this.renderStars() }
-				<div className={`text ${ toggledClass } `}>{ text }</div>
-	      <div className="review-footer">
+				<div className={ `${ styles.text } ${ toggledClass } `}>{ text }</div>
+	      <div className={ styles.reviewFooter }>
 	      	{ this.renderReadMoreButton() }
-					<div className="report-helpful">
+					<div className={ styles.reportHelpful }>
 						<Report />
 						<Helpful />
 					</div>

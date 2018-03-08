@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import styles from '../styles.css';
 
 // https://react-component.github.io/checkbox/examples/simple.html
 import Checkbox from 'rc-checkbox';
@@ -23,7 +24,7 @@ class Filters extends React.Component {
 
 	renderCheckbox() {
 		return (
-			<div className="filter" onClick={this.clearFilter}>
+			<div className= { styles.filter } onClick={this.clearFilter}>
 			<label>
 				<Checkbox 
 					defaultChecked
@@ -41,7 +42,7 @@ class Filters extends React.Component {
 		
 		return (
 			<div id="filters">
-				<div className="header-text">Filters
+				<div className= { styles.headerText }>Filters
 					{ filter > 0 && this.renderCheckbox() }
 				</div>
 			</div>

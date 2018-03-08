@@ -5,6 +5,7 @@ import ReactStars from 'react-stars';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faSignal } from '@fortawesome/fontawesome-free-solid'
 import { faThumbsUp } from '@fortawesome/fontawesome-free-regular'
+import styles from '../styles.css';
 
 class RatingsDetails extends React.Component {
 	constructor(props) {
@@ -18,14 +19,14 @@ class RatingsDetails extends React.Component {
 	renderStars() {
 		const { stars } = this.props.details;
 		return (
-			<div className="stars-section text-small">
+			<div className={ `${styles.starsSection} ${styles.textSmall}` }>
 				<ReactStars 
 					count={ 5 } 
 					value={ stars }
 					color1={ "gray" }
 					color2={ "#EF002F" }
 					edit={ false } />
-				<div className="star-rating">{ stars.toFixed(1) }</div>
+				<div className={ styles.starRating }>{ stars.toFixed(1) }</div>
 				<div>based on recent ratings</div>
 			</div>
 		)
@@ -35,26 +36,24 @@ class RatingsDetails extends React.Component {
 		const { details } = this.props;
 		const Subrating = ({ rating, label }) => {
 			return (
-				<div className="subrating">
-					<span className="subrating-large">{rating}</span>
-					<span className="subrating-small">{label}</span>
+				<div className={ styles.subrating }>
+					<span className={ styles.subratingLarge }>{rating}</span>
+					<span className={ styles.subratingSmall }>{label}</span>
 				</div>
 			)
 		}
 		return (
-			<div id="subrating-list">
+			<div id={ styles.subratingList }>
 				<Subrating rating={ details.stars_food } label="Food" />
-				<div className="vl"></div>
+				<div className={ styles.vl }></div>
 				<Subrating rating={ details.stars_service } label="Service" />
-				<div className="vl"></div>
+				<div className={ styles.vl }></div>
 				<Subrating rating={ details.stars_ambience } label="Ambience" />
-				<div className="vl"></div>
+				<div className={ styles.vl }></div>
 				<Subrating rating={ details.stars_value } label="Value" />
 			</div>
 		)
 	}
-
-				// <i className="fas fa-signal" style={iconStyle}></i>
 
 	renderNoise(iconStyle, divStyle) {
 		return (
@@ -62,7 +61,7 @@ class RatingsDetails extends React.Component {
 				<div><FontAwesomeIcon 
 					icon={ faSignal }
 					style={iconStyle} /> </div>
-				<div className="noise subrating-small">
+				<div className={ `${styles.noise} ${styles.subratingSmall}` }>
 					<b>Noise</b> · {this.props.details.noise}</div>
 			</div>
 		)
@@ -70,11 +69,11 @@ class RatingsDetails extends React.Component {
 
 	renderRecommend(iconStyle, divStyle) {
 		return (
-			<div style={divStyle}>
+			<div style={ divStyle }>
 				<div><FontAwesomeIcon 
 					icon={ faThumbsUp }
 					style={iconStyle} /> </div>
-				<div className="recommended subrating-small">
+				<div className={ `${styles.recommended} ${styles.subratingSmall}` }>
 					<b>{this.props.details.recommend}% of people</b> would recommend it to a friend</div>
 			</div>
 		)
@@ -91,8 +90,8 @@ class RatingsDetails extends React.Component {
 		}
 	
 		return (
-			<div className="details">
-				<div className="text">Reviews can only be made by diners who have eaten at this restaurant</div>
+			<div className={ styles.details }>
+				<div className={ styles.text }>Reviews can only be made by diners who have eaten at this restaurant</div>
 				{ this.renderStars() }
 				{ this.renderSubratings() }
 				{ this.renderNoise(iconStyle, divStyle) }

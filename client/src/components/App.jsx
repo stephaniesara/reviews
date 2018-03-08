@@ -6,6 +6,7 @@ import Sort from './Sort.jsx';
 import Filters from './Filters.jsx';
 import PageNavigator from './PageNavigator.jsx';
 import moment from 'moment';
+import styles from '../styles.css';
 
 class App extends React.Component {
 	constructor(props) {
@@ -120,7 +121,7 @@ class App extends React.Component {
 		const reviews = filter ? this.state.reviews_filtered : this.state.reviews;
 
 		return (
-			<div>
+			<div id={ styles.reviewsApp }>
 				<Ratings 
 					details={ details }
 					review_count={ review_count }

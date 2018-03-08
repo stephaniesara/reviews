@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import styles from '../styles.css';
 
 class RatingsBar extends React.Component {
 	constructor(props) {
@@ -39,15 +40,15 @@ class RatingsBar extends React.Component {
 		}
 
 		return (
-			<div className="bar"
+			<div className={ styles.bar } 
 				onMouseEnter={ this.handleEnter }
 				onMouseLeave={ this.handleLeave }>
-				<div className={ hover ? 'hover-text' : '' }>{ label }</div>
+				<div className={ hover ? styles.hoverText : '' }>{ label }</div>
 				<div 
-					className={ hover ? "bar-outer hover-bar" : "bar-outer" }
+					className={ hover ? `${styles.barOuter} ${styles.hoverBar}` : styles.barOuter }
 					onClick={ this.handleClick }>
 					<div 
-						className="bar-inner"
+						className={ styles.barInner }
 						style={ innerWidth }></div>
 				</div>
 			</div>

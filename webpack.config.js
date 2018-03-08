@@ -18,18 +18,32 @@ module.exports = {
           presets: ['react', 'es2015']
         }
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }            
+          }
+        ]
+      }
       // {
       //   test : /\.css$/,
       //   include: /node_modules/,
       //   loaders: ['style-loader', 'css-loader']
       // },
-      {
-        test: /\.css$/,
-        use: 'style-loader'
-      }, {
-        test: /\.css$/,
-        use: 'css-loader'
-      }
+      // {
+      //   test: /\.css$/,
+      //   use: 'style-loader'
+      // }, {
+      //   test: /\.css$/,
+      //   use: 'css-loader'
+      // }
     ]
   }
 };

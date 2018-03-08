@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import RatingsBarList from './RatingsBarList.jsx';
 import RatingsDetails from './RatingsDetails.jsx';
+import styles from '../styles.css';
 
 class Ratings extends React.Component {
 	constructor(props) {
@@ -16,12 +17,12 @@ class Ratings extends React.Component {
 		}
 
 		return (
-			<div className="ratings">
-				<div className="title">
+			<div className={ styles.ratings }>
+				<div className={ styles.title }>
 					<h2>What { review_count.overall } People Are Saying</h2>
 				</div>
-				<div className="header-text">Overall ratings and reviews</div>
-				<div className="sub-title">
+				<div className={ styles.headerText }>Overall ratings and reviews</div>
+				<div className={ styles.subTitle }>
 					<RatingsDetails details={ details } />
 					<RatingsBarList
 						review_count={ review_count }

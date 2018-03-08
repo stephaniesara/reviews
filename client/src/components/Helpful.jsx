@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faCaretSquareUp } from '@fortawesome/fontawesome-free-regular'
+import styles from '../styles.css';
 
 class Helpful extends React.Component {
 	constructor(props) {
@@ -16,10 +17,10 @@ class Helpful extends React.Component {
 	render() {
 		return (
 			<div 
-				className="helpful" 
+				className={ styles.helpful } 
 				onClick={ this.handleClickHelpful }>
 				<FontAwesomeIcon icon={ faCaretSquareUp } />
-				<div className="text-small">Helpful</div>
+				<div className={ styles.textSmall }>Helpful</div>
 			</div>
 		)
 	}

@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import RatingsBar from './RatingsBar.jsx';
+import styles from '../styles.css';
 
 class RatingsBarList extends React.Component {
 	constructor(props) {
@@ -10,7 +11,7 @@ class RatingsBarList extends React.Component {
 	render() {
 		const { review_count } = this.props;
 		return (
-			<div className="bars text">
+			<div className={ `${styles.bars} ${styles.text} `}>
 				{[5, 4, 3, 2, 1].map((label, index) =>
 					<RatingsBar
 						key={ index }
