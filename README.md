@@ -26,9 +26,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
-### Installing Dependencies
-
 From within the root directory:
+
+### Installing Dependencies
 
 ```sh
 npm install -g webpack
@@ -45,7 +45,14 @@ npm dev-react
 
 ### Seeding MySQL Database
 
+Seeding may take a couple minutes to complete.
+
 ```sh
-npm seed-db // May take a couple minutes to complete
-mysql.server start // Ensure MySQL is running
+npm seed-db
+```
+
+Once seeded, ensure MySQL is running.
+
+```sh
+mysql.server start
 ```
