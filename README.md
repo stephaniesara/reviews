@@ -38,13 +38,14 @@ npm install
 ### Seeding MySQL Database
 
 Run the following command to seed the database.
+
 Seeding is complete once you see the following terminal output:
-*Finished seeding table: details*
-*Finished seeding table: users*
-*Finished seeding table: reviews*
+**Finished seeding table: details**
+**Finished seeding table: users**
+**Finished seeding table: reviews**
 
 If your MySQL root user requires a password:
-Update password in *seedReviews.js*
+Update password in **seedReviews.js**
 
 From within the root directory:
 
@@ -67,7 +68,7 @@ $ npm run dev-react
 ### Running Server
 
 If your MySQL root user requires a password:
-Update password in */server/db/index.js*
+Update password in **/server/db/index.js**
 
 ```sh
 $ npm start
@@ -75,13 +76,13 @@ $ npm start
 
 ### Open Chrome, and PROFIT!
 
-To render restaurant of id *n* where *n* is between 1-267:
+To render restaurant of id **n** where **n** is between 1-267:
 
 ```sh
 http://localhost:3002/?id=n
 ```
 
-Or to default to restaurant of id *n*=1:
+Or to default to restaurant of id **n**=1:
 
 ```sh
 http://localhost:3002
