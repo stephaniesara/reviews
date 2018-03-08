@@ -1,6 +1,6 @@
 const Promise = require('bluebird');
 const fs = Promise.promisifyAll(require('fs'));
-const tables = require('./reviewTables');
+const tables = require('./reviewTables.js');
 const mysql = require('mysql');
 const databaseName = 'open_source_table_reviews';
 
