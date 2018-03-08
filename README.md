@@ -40,8 +40,11 @@ npm install
 Run the following command to seed the database.
 
 Seeding is complete once you see the following terminal output:
+
 **Finished seeding table: details**
+
 **Finished seeding table: users**
+
 **Finished seeding table: reviews**
 
 If your MySQL root user requires a password:
