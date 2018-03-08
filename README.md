@@ -1,6 +1,6 @@
-# Project Name
+# OpenSourceTable - Reviews
 
-> Project description
+> This component displays the ratings and reviews for a given restaurant. It allows the user to sort and filter reviews, click through different pages of reviews, and read more/read less of individual reviews.
 
 ## Related Projects
 
@@ -16,8 +16,6 @@
 1. [Development](#development)
 
 ## Usage
-
-> Some usage instructions
 
 ## Requirements
 
@@ -37,3 +35,17 @@ npm install -g webpack
 npm install
 ```
 
+### Running Server and Webpack
+
+```sh
+npm start
+npm dev-react
+```
+
+
+### Seeding MySQL Database
+
+```sh
+npm seed-db // May take a couple minutes to complete
+mysql.server start // Ensure MySQL is running
+```

@@ -32,18 +32,6 @@ module.exports = {
           }
         ]
       }
-      // {
-      //   test : /\.css$/,
-      //   include: /node_modules/,
-      //   loaders: ['style-loader', 'css-loader']
-      // },
-      // {
-      //   test: /\.css$/,
-      //   use: 'style-loader'
-      // }, {
-      //   test: /\.css$/,
-      //   use: 'css-loader'
-      // }
     ]
   }
 };
