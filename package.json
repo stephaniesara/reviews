@@ -10,6 +10,7 @@
   "scripts": {
     "test": "jest",
     "start": "webpack -d --watch & nodemon server/index.js",
+    "docker": "webpack -d && node server/index.js",
     "seed-db": "node seedReviews.js"
   },
   "dependencies": {
