@@ -9,7 +9,11 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.use('/reviews/:iterator', controller.get);
+// app.use('/reviews/:iterator', controller.get);
+
+app.use('/reviews/:iterator', (req, res) => {
+	res.status(200).send('data!');
+})
 
 app.listen(port, () => {
 	console.log(`reviews server running at: http://localhost:${port}`);
