@@ -31,8 +31,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
-npm install
+$ npm install -g webpack
+$ npm install
 ```
 
 ### Seeding MySQL Database
