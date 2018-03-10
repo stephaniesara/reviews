@@ -2,13 +2,13 @@
 FROM node:9.5.0
 
 # Make a folder in your image where your app's source code can live
-RUN mkdir -p /src/app
+RUN mkdir -p /docker/app
 
 # Tell your container where your app's source code will live
-WORKDIR /src/app
+WORKDIR /docker/app
 
 # What source code do you what to copy, and where to put it?
-COPY . /src/app
+COPY . /docker/app
 
 # Does your app have any dependencies that should be installed?
 RUN npm install
