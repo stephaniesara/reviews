@@ -1,10 +1,10 @@
 /** {
 	border: 1px solid black;
 }*/
-body {
-	font-size: 16px;
+/*body {
+	font-size: 12px;
 	font-family: 'Mukta Malar', sans-serif;
-}
+}*/
 #reviews-app {
 	display: flex;
 	flex-direction: column;
