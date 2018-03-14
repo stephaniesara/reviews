@@ -1,28 +1,16 @@
 const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+const controller = require('./controllers');
+const port = process.env.PORT || 3002;
+
 const app = express();
-const bodyParser = require('body-parser');
-const Promise = require('bluebird');
-const db = require('./db')
 
-app.use(express.static('client/dist'));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
-var sendError = (res, err) => {
-	res.status(500).send(err);
-}
+app.use('/reviews/:iterator', controller.get);
 
-app.get('/reviews/:id', (req, res) => {
-	var id = req.params.id;
-	db.get(id, (err, result) => {
-		if (err) {
-			sendError(res, err);
-		} else {
-			res.json(result);
-		}
-	})
-})
-
-app.listen(3002, () => {
-	console.log('Listening on port 3002');
+app.listen(port, () => {
+	console.log(`reviews server running at: http://localhost:${port}`);
 })

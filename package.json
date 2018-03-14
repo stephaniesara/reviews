@@ -9,22 +9,35 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/index.js",
-    "dev-react": "webpack -d --watch",
-    "seed-db": "node seed.js",
-    "worker": "node worker.js"
+    "start": "webpack -d --watch & nodemon server/index.js",
+    "docker": "webpack -d & node server/index.js",
+    "seed-db": "node seedReviews.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.4",
+    "@fortawesome/fontawesome-free-regular": "^5.0.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.8",
+    "@fortawesome/react-fontawesome": "0.0.17",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "css-loader": "^0.28.10",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
-    "mongoose": "^5.0.6",
+    "moment": "^2.20.1",
+    "morgan": "^1.9.0",
     "mysql": "^2.15.0",
+    "rc-checkbox": "^2.1.5",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-dropdown": "^1.4.0",
+    "react-paginate": "^5.1.0",
+    "react-select": "^1.2.1",
+    "react-stars": "^2.2.5",
+    "react-truncate": "^2.3.0",
     "request": "^2.83.0",
-    "yelp-fusion": "^2.0.3"
+    "style-loader": "^0.20.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -33,6 +46,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^22.4.2",
-    "nodemon": "^1.15.1"
+    "nodemon": "^1.15.1",
+    "webpack": "^3.11.0"
   }
 }

@@ -1,6 +1,6 @@
-# Project Name
+# OpenSourceTable - Reviews
 
-> Project description
+> This component displays the ratings and reviews for a given restaurant. It allows the user to sort and filter reviews, click through different pages of reviews, and read more/read less of individual reviews.
 
 ## Related Projects
 
@@ -17,8 +17,6 @@
 
 ## Usage
 
-> Some usage instructions
-
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
@@ -33,7 +31,62 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
-npm install
+$ npm install -g webpack
+$ npm install
 ```
 
+### Seeding MySQL Database
+
+From within the root directory:
+
+```sh
+$ npm run seed-db
+```
+
+If your MySQL root user requires a password:
+Update password in **seedReviews.js**
+
+Seeding is complete once you see the following terminal output. May take several minutes.
+
+```sh
+Finished seeding table: details
+Finished seeding table: users
+Finished seeding table: reviews
+```
+
+Once seeding is complete, ensure MySQL is running:
+
+```sh
+$ mysql.server start
+```
+
+### Starting Webpack and Running Server
+
+From within the root directory:
+
+```sh
+$ npm start
+```
+
+If your MySQL root user requires a password:
+Update password in **/server/db/index.js**
+
+### Open Chrome, and PROFIT!
+
+You can render restaurants of id **n** where **n** is between 1-267:
+
+```sh
+http://localhost:3002/?id=n
+```
+
+Example: render restaurant of id **n**=122:
+
+```sh
+http://localhost:3002/?id=122
+```
+
+Default: render restaurant of id **n**=1:
+
+```sh
+http://localhost:3002
+```
